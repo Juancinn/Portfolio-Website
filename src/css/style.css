@@ -149,31 +149,44 @@ h1 {
   font-size: 24px;
 }
 
-/* About Me Section */
+/* About Section Styles */
+.behind-text {
+  font-family: "Moirai One", cursive;
+  color: grey;
+  position: relative;
+  z-index: 1;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.main-text {
+  font-family: "Bebas Neue", sans-serif;
+  color: #222831;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: -50px; /* This will allow "ABOUT ME" to overlay on "ABOUT". Adjust as needed. */
+}
+
 .about-pic {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 300px; /* Adjust as necessary */
+  display: block;
+  margin: 0 auto; /* Center the image */
 }
 
-.about-description {
-  font-size: 1rem;
-  color: #222831;
-  margin-bottom: 20px;
-}
-
-.interests {
-  list-style: none;
-  padding: 0;
-}
-
-.interests li {
+.btn-hire-me {
+  background-color: #00adb5;
+  color: #eeeeee;
+  border-radius: 50px;
+  padding: 10px 20px;
   display: inline-block;
-  margin-right: 20px;
-  font-size: 1rem;
-  color: #222831;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.interests li i {
-  margin-right: 10px;
+.btn-hire-me:hover {
+  background-color: #007d8a; /* Darker shade of the original color */
 }

@@ -8,7 +8,7 @@
     <!-- Title -->
     <title>Juan's Portfolio</title>
 
-    <!-- Preconnect and Font links for Roboto Mono -->
+    <!-- Preconnect and Font links for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,6 +17,10 @@
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Moirai+One&display=swap"
       rel="stylesheet"
     />
 
@@ -90,30 +94,40 @@
       </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="About" style="background-color: var(--fourth-color)">
+    <!-- About Section -->
+    <section id="About" style="background-color: #eeeeee; padding: 5% 0">
       <div class="container">
-        <div class="row align-items-center py-5">
-          <!-- Optional Profile Photo -->
-          <div class="col-md-4">
-            <img src="./gallery/about-me-profile.jpg" alt="Juan Moncayo" class="about-pic" />
+        <div class="about-header">
+          <h2 class="behind-text">ABOUT</h2>
+          <h1 class="main-text">ABOUT ME</h1>
+        </div>
+
+        <div class="row">
+          <!-- Image -->
+          <div class="col-md-6">
+            <img src="./gallery/pfp.png" alt="Juan Moncayo" class="about-pic" />
           </div>
-          <!-- About Content -->
-          <div class="col-md-8">
-            <h2>About Me</h2>
-            <h4>My Journey</h4>
-            <p class="about-description">
-              Hello! I'm Juan, a front-end developer with a passion for creating stunning web
-              interfaces. My journey started in [year] when I first discovered the magic of coding.
-              Since then, I've been committed to refining my skills and producing high-quality web
-              experiences.
+
+          <!-- Description -->
+          <div class="col-md-6">
+            <h3>Web Developer & Student</h3>
+            <p>
+              [Your Description Here: Include the honesty statement and any other relevant info
+              about you.]
             </p>
-            <ul class="interests">
-              <li><i class="fas fa-code"></i> Coding</li>
-              <li><i class="fas fa-camera"></i> Photography</li>
-              <li><i class="fas fa-music"></i> Music</li>
-              <!-- ... more interests ... -->
-            </ul>
+
+            <div class="academic-details">
+              <ul>
+                <li><strong>Name:</strong> Juan Moncayo</li>
+                <li><strong>Student ID:</strong> 112572227</li>
+                <li><strong>Course:</strong> WEB222</li>
+                <li><strong>Section:</strong> NHH</li>
+                <li><strong>Professor:</strong> Robin Li</li>
+              </ul>
+            </div>
+
+            <!-- Hire Me Button -->
+            <a href="#" class="btn btn-hire-me">Hire Me</a>
           </div>
         </div>
       </div>
