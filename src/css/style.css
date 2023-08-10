@@ -1,0 +1,179 @@
+/* Colors from the palette */
+:root {
+  --first-color: #222831;
+  --second-color: #393e46;
+  --third-color: #00adb5;
+  --fourth-color: #eeeeee;
+  --primary-text: #212121;
+  --secondary-text: #757575;
+  --divider-color: #bdbdbd;
+  --icons-text: #ffffff;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: var(--primary-text);
+  background-color: var(--first-color);
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--second-color);
+}
+
+.navbar .nav-link {
+  color: var(--icons-text);
+}
+
+.navbar .nav-link:hover {
+  color: var(--third-color);
+}
+
+/* Banner styles */
+.banner {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5% 0;
+}
+
+.small-text {
+  font-size: 1.7rem;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 5px;
+  margin: 0 0 20px 0; /* Space below the name */
+  padding: 0;
+}
+
+#dynamic-text {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.banner .profile-pic {
+  max-width: 375px;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.banner .btn-custom,
+.banner .video-link {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.banner .btn-custom {
+  background-color: var(--third-color);
+  color: var(--icons-text);
+  margin-right: 15px;
+  border-radius: 25px;
+  padding: 12px 20px;
+}
+
+.banner .video-link {
+  color: var(--third-color);
+  font-size: 1.2rem;
+  padding: 10px 18px;
+  border-radius: 5px;
+}
+
+.banner .video-link:hover {
+  text-decoration: none;
+  color: var(--icons-text);
+}
+
+.banner .video-link .fas {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 5%; /* Adjust this value if you want it higher or lower */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: var(--fourth-color);
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Navbar utility styles */
+.hidden-navbar {
+  display: none;
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure navbar stays above other content */
+}
+
+/* Typed Script */
+#dynamic-text {
+  display: inline-block;
+}
+
+.typed-cursor {
+  color: #ffffff;
+  opacity: 1;
+  animation: typedjsBlink 0.7s infinite;
+  font-size: 24px;
+}
+
+/* About Me Section */
+.about-pic {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-description {
+  font-size: 1rem;
+  color: #222831;
+  margin-bottom: 20px;
+}
+
+.interests {
+  list-style: none;
+  padding: 0;
+}
+
+.interests li {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 1rem;
+  color: #222831;
+}
+
+.interests li i {
+  margin-right: 10px;
+}
