@@ -47,15 +47,13 @@ h1 {
   font-family: "Bebas Neue", sans-serif;
   font-size: 3.5rem;
   letter-spacing: 5px;
-  margin: 0 0 20px 0; /* Space below the name */
-  padding: 0;
+  margin-bottom: 20px;
 }
 
 #dynamic-text {
   font-family: "Roboto Mono", monospace;
   font-size: 1.2rem;
-  margin: 0 0 20px 0;
-  padding: 0;
+  margin-bottom: 20px;
 }
 
 .banner .profile-pic {
@@ -101,7 +99,7 @@ h1 {
 
 .scroll-arrow {
   position: absolute;
-  bottom: 5%; /* Adjust this value if you want it higher or lower */
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
@@ -134,45 +132,69 @@ h1 {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000; /* Ensure navbar stays above other content */
-}
-
-/* Typed Script */
-#dynamic-text {
-  display: inline-block;
-}
-
-.typed-cursor {
-  color: #ffffff;
-  opacity: 1;
-  animation: typedjsBlink 0.7s infinite;
-  font-size: 24px;
+  z-index: 1000;
 }
 
 /* About Section Styles */
+.text-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
 .behind-text {
   font-family: "Moirai One", cursive;
   color: grey;
   position: relative;
   z-index: 1;
-  font-size: 4rem;
-  text-align: center;
+  font-size: 9rem;
+  line-height: 1;
+  letter-spacing: 15px;
 }
 
 .main-text {
   font-family: "Bebas Neue", sans-serif;
   color: #222831;
-  position: relative;
+  position: absolute;
   z-index: 2;
-  text-align: center;
-  margin-top: -50px; /* This will allow "ABOUT ME" to overlay on "ABOUT". Adjust as needed. */
+  font-size: 4rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 .about-pic {
-  width: 100%;
-  max-width: 300px; /* Adjust as necessary */
-  display: block;
-  margin: 0 auto; /* Center the image */
+  max-width: 100%;
+}
+
+.about-header {
+  padding-bottom: 50px;
+}
+
+.academic-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-column {
+  width: 50%;
+}
+
+.text-container h3 {
+  margin-top: -15px;
+  margin-bottom: 25px;
+}
+
+.academic-details ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.academic-details li {
+  margin-bottom: 25px;
 }
 
 .btn-hire-me {
@@ -188,5 +210,125 @@ h1 {
 }
 
 .btn-hire-me:hover {
-  background-color: #007d8a; /* Darker shade of the original color */
+  background-color: #007d8a;
+}
+
+/* Experience & Education Styles */
+
+.timeline {
+  position: relative;
+  padding-left: 10px; /* This keeps space for the icon and line */
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px; /* Starts from the first icon */
+  left: 20px; /* Positioned close to the icon */
+  height: calc(100% - 10px); /* Ends at the last icon */
+  width: 2px;
+  background-color: #222831;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: start; /* To align everything to the top */
+  margin-bottom: 20px;
+}
+
+.timeline-icon {
+  position: absolute;
+  margin-top: 30px;
+  z-index: 1;
+  width: 40px;
+  height: 40px; /* to ensure consistent spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0; /* this ensures all icons are flush against the start of the parent */
+}
+
+.timeline-content {
+  flex-grow: 1;
+  padding-left: 45px; /* adjust according to your preference for space between icon and content */
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+  color: #222831;
+  background-color: #eeeeee;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+#EducationExperience h3 {
+  margin-left: 25px; /* Considering the padding in timeline */
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+#EducationExperience .timeline-item p {
+  background-color: var(--fourth-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Skills Section */
+.skill-bar {
+  position: relative;
+  margin-bottom: 45px; /* Adjusted spacing between bars for added clarity */
+}
+
+.skill-label {
+  position: absolute;
+  top: -25px; /* Increased vertical spacing from the bar */
+  left: 0;
+  font-weight: bold;
+  color: #333;
+  margin-right: 15px; /* Added a slight margin for spacing between label and percentage */
+}
+
+.skill-percentage {
+  position: absolute;
+  top: -25px; /* Increased vertical spacing from the bar */
+  right: 0;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10px; /* Added a slight margin for spacing between label and percentage */
+}
+
+.skill-progress {
+  border-radius: 30px;
+  background-color: #dcdcdc;
+  height: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  border-radius: 30px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* For the column spacing */
+.column {
+  padding: 0 15px; /* Added space between columns */
+}
+
+/* Muted colors retained */
+.bg-color1 {
+  background-color: #ff8c7d;
+}
+.bg-color2 {
+  background-color: #88eba2;
+}
+.bg-color3 {
+  background-color: #8d8cff;
+}
+.bg-color4 {
+  background-color: #7fdfff;
+}
+.bg-color5 {
+  background-color: #ff88bc;
 }
