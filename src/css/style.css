@@ -16,6 +16,10 @@ body {
   background-color: var(--first-color);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Navbar styles */
 .navbar {
   background-color: var(--second-color);
@@ -48,6 +52,14 @@ h1 {
   font-size: 3.5rem;
   letter-spacing: 5px;
   margin-bottom: 20px;
+}
+
+.typed-cursor {
+  opacity: 1;
+  color: #eeeeee;
+  display: inline-block;
+  font-family: "Roboto Mono", monospace;
+  font-size: 25px;
 }
 
 #dynamic-text {
@@ -276,6 +288,10 @@ h1 {
 }
 
 /* Skills Section */
+#Skills .text-container {
+  margin-bottom: 30px; /* Adjust this value according to the space you want */
+}
+
 .skill-bar {
   position: relative;
   margin-bottom: 45px; /* Adjusted spacing between bars for added clarity */
@@ -313,22 +329,370 @@ h1 {
 
 /* For the column spacing */
 .column {
-  padding: 0 15px; /* Added space between columns */
+  padding: 0 25px; /* Added space between columns */
 }
 
 /* Muted colors retained */
 .bg-color1 {
-  background-color: #ff8c7d;
+  background-color: #00adb5;
 }
 .bg-color2 {
-  background-color: #88eba2;
+  background-color: #64e085;
 }
 .bg-color3 {
-  background-color: #8d8cff;
+  background-color: #7775fc;
 }
 .bg-color4 {
-  background-color: #7fdfff;
+  background-color: #f8715f;
 }
 .bg-color5 {
-  background-color: #ff88bc;
+  background-color: #f169a4;
+}
+.bg-color5 {
+  background-color: #e8e163;
+}
+/* Portfolio Section Styles */
+#Portfolio {
+  padding: 60px 0; /* Add padding for spacing */
+  background-color: var(--fourth-color);
+  display: flex;
+  flex-direction: column; /* Organizes the contents vertically */
+  align-items: center; /* Centers the content horizontally */
+  justify-content: center; /* Centers the content vertically */
+}
+
+.portfolio-header {
+  margin-bottom: 320px; /* Add space between the header and content */
+}
+
+.portfolio-content {
+  text-align: center;
+}
+
+.wip-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4.5rem; /* Increase the font size */
+  color: var(--first-color);
+  animation: fadeInOut 2s infinite;
+  border: 4px dashed var(--third-color); /* Make the border thicker */
+  padding: 35px 55px; /* Increase the padding to make the container bigger */
+  border-radius: 20px;
+  margin: 20px 0; /* Additional margin to give space around it */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Contact Section Styles */
+
+/* Adjustments to the previous section to add more spacing */
+section:not(#Contact) {
+  /* This will select every section except the "Contact" section */
+  padding-bottom: 400px; /* Adjust this value as per your preference */
+}
+
+#Contact {
+  background-color: var(--second-color);
+  padding: 150px 0; /* Spacing at the top and bottom of the section */
+  color: var(--fourth-color); /* Setting default color for text in this section */
+}
+
+#Contact label {
+  display: block; /* ensures the label appears on a new line */
+  margin-bottom: 8px; /* some space between the label and the input/textarea */
+  color: var(--icons-text); /* using your icon-text color variable */
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px; /* Spacing between the header and the form */
+  position: relative;
+}
+
+.contact-container {
+  max-width: 750px; /* Maximum width for the form */
+  margin: 0 auto; /* Centering the form */
+}
+
+.contact-header .main-text {
+  color: #eeeeee;
+}
+
+#Contact input[type="radio"] {
+  margin-right: 8px; /* Space between the radio button and its label */
+}
+
+#Contact input,
+#Contact textarea,
+#Contact select {
+  width: 100%;
+  padding: 15px 30px;
+  border: none;
+  background-color: var(--fourth-color);
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+  appearance: none; /* Removes platform-specific styling on some browsers */
+  -webkit-appearance: none; /* Removes platform-specific styling for Safari */
+  -moz-appearance: none; /* Removes platform-specific styling for Firefox */
+  margin-bottom: 20px;
+}
+
+#Contact input:focus,
+#Contact textarea:focus {
+  box-shadow: 0 0 8px var(--third-color);
+  border: 1px solid var(--third-color);
+}
+
+#Contact textarea {
+  border-radius: 30px; /* Slightly more square shape for the textarea */
+  height: 150px; /* Fixed height for the message box */
+  resize: none; /* Disabling resizing of the textarea */
+}
+
+#Contact button {
+  width: 100%;
+  border: none;
+  background-color: var(--third-color);
+  padding: 15px 0;
+  font-size: 1.2rem;
+  color: var(--icons-text);
+  border-radius: 50px;
+  cursor: pointer; /* Hand cursor on hover */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+#Contact button:hover {
+  background-color: var(--first-color); /* Changing the color on hover */
+}
+
+#otherTopicDiv {
+  margin-bottom: 20px;
+}
+
+#Contact select {
+  width: 100%;
+  border: none;
+  background-color: var(--fourth-color);
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#Contact select:focus {
+  box-shadow: 0 0 8px var(--third-color);
+  border: 1px solid var(--third-color);
+}
+
+/* Scroll To Top Button */
+#scrollToTop {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 15px;
+  width: 40px;
+  height: 80px;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#scrollToTop:hover {
+  background-color: #e0e0e0;
+}
+
+.arrow-up {
+  display: block; /* Puts each arrow on its own line */
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive Design */
+/* <!-- About Me --!> */
+@media (max-width: 420px) {
+  .text-container {
+    text-align: center;
+  }
+
+  .col-md-6:nth-child(1) {
+    margin-top: 20px;
+  }
+
+  .col-md-6:nth-child(2) {
+    margin-top: 20px;
+  }
+
+  .behind-text {
+    font-size: 4rem;
+    letter-spacing: 8px;
+  }
+
+  .main-text {
+    font-size: 2.5rem;
+  }
+
+  .about-header {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .about-pic {
+    width: 100%;
+  }
+
+  .academic-details {
+    flex-direction: column;
+  }
+
+  .list-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .btn-hire-me {
+    padding: 12px 24px;
+  }
+}
+
+/* <!-- Education & Experience --!> */
+@media (max-width: 420px) {
+  .education-experience-header {
+    text-align: center;
+  }
+
+  .col-md-6 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-icon {
+    left: -10px;
+  }
+
+  .timeline-content {
+    padding-left: 35px;
+  }
+
+  #EducationExperience h3 {
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  #EducationExperience .behind-text {
+    font-size: 4rem;
+  }
+
+  #EducationExperience .main-text {
+    font-size: 1.5rem;
+  }
+
+  .material-symbols-outlined {
+    font-size: 15px;
+  }
+
+  #EducationExperience .timeline-item p {
+    margin-bottom: 10px;
+  }
+}
+
+/* <!-- Portfolio Section --> */
+@media (max-width: 420px) {
+  #Portfolio {
+    padding: 40px 10px;
+  }
+
+  .portfolio-header {
+    margin-bottom: 180px;
+  }
+
+  .text-container {
+    text-align: center;
+  }
+
+  #Portfolio .behind-text {
+    font-size: 4rem;
+    letter-spacing: 6px;
+  }
+
+  #Portfolio .main-text {
+    margin-top: 5px;
+    font-size: 2.75rem;
+  }
+
+  .wip-text {
+    font-size: 3rem;
+    padding: 20px 30px;
+    margin: 15px 0;
+  }
+}
+
+/* <!-- Contact Section --> */
+@media (max-width: 420px) {
+  #Contact {
+    padding: 100px 10px;
+  }
+
+  .contact-header {
+    margin-bottom: 30px;
+  }
+
+  .text-container {
+    text-align: center;
+  }
+
+  #Contact .behind-text {
+    font-size: 4rem;
+    letter-spacing: 6px;
+  }
+
+  #Contact .main-text {
+    margin-top: 5px;
+    font-size: 2.75rem;
+  }
+
+  #Contact input,
+  #Contact textarea,
+  #Contact select {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+  }
+
+  #Contact textarea {
+    height: 120px;
+  }
+
+  #Contact button {
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+
+  #otherTopicDiv {
+    margin-bottom: 15px;
+  }
+
+  /* Scroll To Top Button */
+  #scrollToTop {
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 60px;
+    font-size: 18px;
+  }
 }
