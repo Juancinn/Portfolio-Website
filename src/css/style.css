@@ -10,12 +10,6 @@
   --icons-text: #ffffff;
 }
 
-body {
-  font-family: "Arial", sans-serif;
-  color: var(--primary-text);
-  background-color: var(--first-color);
-}
-
 html {
   scroll-behavior: smooth;
 }
