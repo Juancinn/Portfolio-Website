@@ -1,15 +1,51 @@
 /* global $ */
+/* global jQuery */
+
+jQuery.easing.easeInOutCubic = function (x, t, b, c, d) {
+  if ((t /= d / 2) < 1) return (c / 2) * t * t * t + b;
+  return (c / 2) * ((t -= 2) * t * t + 2) + b;
+};
 
 $(document).ready(function () {
-  // /* Navigation Bar */
-  let navbar = document.querySelector(".navbar");
-  if (navbar) {
-    navbar.addEventListener("click", function () {
-      console.log("Navbar clicked!");
-    });
-  }
+  console.log("Starting script file");
 
+  /* Navigation Bar */
+  $(".navbar").on("click", function () {
+    console.log("Navbar clicked!");
+  });
+
+  /* Window Scroll Event */
   $(window).on("scroll", function () {
+    handleNavbarPosition();
+    handleScrollArrowVisibility();
+    handleScrollToTopButtonVisibility();
+  });
+
+  /* Slow Scroll */
+  $('a[href^="#"]').on("click", function (e) {
+    e.preventDefault();
+    let target = $(this.getAttribute("href"));
+    $("html, body").animate(
+      {
+        scrollTop: $(target).offset().top
+      },
+      1000
+    );
+  });
+
+  /* Scroll to top button */
+  $("#scrollToTop").on("click", function () {
+    console.log("Button clicked");
+    scrollToTop();
+  });
+
+  /* Other functionalities */
+  initializeOtherOptions();
+  initializeReasonDropdown();
+  initializeContactMethod();
+
+  // Functions
+  function handleNavbarPosition() {
     if ($(window).scrollTop() >= $(".banner").height()) {
       $(".navbar").addClass("fixed-navbar");
       $(".navbar").removeClass("hidden-navbar");
@@ -17,86 +53,104 @@ $(document).ready(function () {
       $(".navbar").removeClass("fixed-navbar");
       $(".navbar").addClass("hidden-navbar");
     }
-    // Hide arrow when user starts scrolling
+  }
+
+  function handleScrollArrowVisibility() {
     if ($(window).scrollTop() > 10) {
       $(".scroll-arrow").fadeOut("slow");
     } else {
       $(".scroll-arrow").fadeIn("slow");
     }
-  });
+  }
 
-  //Slow Scroll
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
+  function handleScrollToTopButtonVisibility() {
+    const bannerBottom = $("#Home")[0].getBoundingClientRect().bottom;
+    if (window.scrollY > bannerBottom) {
+      $("#scrollToTop").fadeIn("slow");
+    } else {
+      $("#scrollToTop").fadeOut("slow");
+    }
+  }
 
-      let target = document.querySelector(this.getAttribute("href"));
+  const totalDuration = 1000;
 
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+  function scrollToTop() {
+    console.log("Starting the scroll to top");
+    const startPosition = window.pageYOffset || document.documentElement.scrollTop;
+    let startTime = null;
+
+    function animateScroll(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const scrollAmount = customEasing(timeElapsed, startPosition, -startPosition, totalDuration);
+      window.scrollTo(0, scrollAmount);
+      if (timeElapsed < totalDuration) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+    requestAnimationFrame(animateScroll);
+  }
+
+  function initializeOtherOptions() {
+    const otherElement = $("#other");
+    const otherTopicDiv = $("#otherTopicDiv");
+    const otherTopic = $("#otherTopic");
+    const jobOfferElement = $("#jobOffer");
+    const schoolElement = $("#school");
+
+    otherElement.change(function () {
+      if ($(this).prop("checked")) {
+        otherTopicDiv.show();
+        otherTopic.attr("required", true);
+      }
     });
-  });
 
-  // Scroll To Top
-  document.getElementById("scrollToTop").addEventListener("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
+    jobOfferElement.change(hideOther);
+    schoolElement.change(hideOther);
 
-  // Other Options
-  const otherElement = document.getElementById("other");
-  const otherTopicDiv = document.getElementById("otherTopicDiv");
-  const otherTopic = document.getElementById("otherTopic");
-  const jobOfferElement = document.getElementById("jobOffer");
-  const schoolElement = document.getElementById("school");
+    function hideOther() {
+      otherTopicDiv.hide();
+      otherTopic.attr("required", false);
+    }
+  }
 
-  if (otherElement) {
-    otherElement.addEventListener("change", function () {
-      if (this.checked && otherTopicDiv && otherTopic) {
-        otherTopicDiv.style.display = "block";
-        otherTopic.required = true; // make it mandatory
+  function initializeReasonDropdown() {
+    $("#reasonDropdown").change(function () {
+      if ($(this).val() === "other") {
+        $("#otherTopicDiv").show();
+      } else {
+        $("#otherTopicDiv").hide();
       }
     });
   }
 
-  if (jobOfferElement) {
-    jobOfferElement.addEventListener("change", hideOther);
+  function initializeContactMethod() {
+    $("#contactMethod").change(function () {
+      if ($(this).val() === "phone") {
+        $("#phoneInputDiv").show();
+        $("#phone").attr("required", true);
+      } else {
+        $("#phoneInputDiv").hide();
+        $("#phone").attr("required", false);
+      }
+    });
   }
 
-  if (schoolElement) {
-    schoolElement.addEventListener("change", hideOther);
-  }
+  function customEasing(t, b, c, d) {
+    const accelerationFraction = 0.75 / 2; // 0.75 seconds for acceleration and deceleration
 
-  function hideOther() {
-    if (otherTopicDiv && otherTopic) {
-      otherTopicDiv.style.display = "none";
-      otherTopic.required = false; // remove mandatory status
+    t /= d;
+    if (t < accelerationFraction) {
+      // Accelerate from zero velocity
+      t /= accelerationFraction;
+      return c * t * t * t * t + b; // using quartic for stronger effect
+    } else if (t < 1 - accelerationFraction) {
+      // Middle segment moves linearly
+      t = (t - accelerationFraction) / (1 - 2 * accelerationFraction);
+      return c * (0.5 + 0.5 * t) + b;
     }
-  }
-});
-
-//Reason Dropdown
-document.getElementById("reasonDropdown").addEventListener("change", function () {
-  let otherDiv = document.getElementById("otherTopicDiv");
-  if (this.value === "other") {
-    otherDiv.style.display = "block";
-  } else {
-    otherDiv.style.display = "none";
-  }
-});
-
-//Phone/Email Option
-document.getElementById("contactMethod").addEventListener("change", function () {
-  const phoneInputDiv = document.getElementById("phoneInputDiv");
-  if (this.value === "phone") {
-    phoneInputDiv.style.display = "block";
-    document.getElementById("phone").required = true; // Make phone input mandatory
-  } else {
-    phoneInputDiv.style.display = "none";
-    document.getElementById("phone").required = false; // Remove mandatory status from phone input
+    // Decelerate to zero velocity
+    t = (t - (1 - accelerationFraction)) / accelerationFraction;
+    return c * (1 - (1 - t) * (1 - t) * (1 - t) * (1 - t)) + b; // using quartic for stronger effect
   }
 });

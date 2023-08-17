@@ -496,27 +496,49 @@ section:not(#Contact) {
 }
 
 /* Scroll To Top Button */
+@keyframes smoothBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 #scrollToTop {
-  background-color: #f5f5f5;
+  background-color: var(--third-color); /* Using your palette's color */
   border: none;
-  border-radius: 15px;
-  width: 40px;
-  height: 80px;
+  border-radius: 20px 20px; /* Adjusted to give a pill shape */
+  width: 32px; /* Adjusted width */
+  height: 50px; /* Adjusted height */
   text-align: center;
-  padding: 10px 0;
-  font-size: 20px;
+  font-size: 28px; /* You may need to adjust this depending on the new button size */
   cursor: pointer;
   transition: background-color 0.3s;
+  padding: 0; /* Ensuring there's no default padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: smoothBounce 2s infinite;
 }
 
 #scrollToTop:hover {
-  background-color: #e0e0e0;
+  background-color: var(--fourth-color);
 }
 
-.arrow-up {
-  display: block; /* Puts each arrow on its own line */
-  margin: 0;
-  padding: 0;
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 200, "opsz" 40;
+  font-family: "Material Symbols Outlined";
+  background: transparent; /* Ensuring the icon's background is transparent */
+  border-radius: 50%; /* Giving it a rounded shape */
+  padding: 4px; /* Adding some padding to ensure the icon is centered */
 }
 
 /* Responsive Design */
