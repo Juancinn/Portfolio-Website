@@ -365,29 +365,27 @@
           <input type="email" name="email" placeholder="Your Email" required />
           <input type="text" name="street" placeholder="Street Address" required />
           <input type="text" name="city" placeholder="City" required />
+          <select id="provinces" name="province" required>
+            <option value="Alberta">Alberta</option>
+            <option value="British Columbia">British Columbia</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="New Brunswick">New Brunswick</option>
+            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+            <option value="Nova Scotia">Nova Scotia</option>
+            <option value="Ontario">Ontario</option>
+            <option value="Prince Edward Island">Prince Edward Island</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Saskatchewan">Saskatchewan</option>
+            <option value="Northwest Territories">Northwest Territories</option>
+            <option value="Nunavut">Nunavut</option>
+            <option value="Yukon">Yukon</option>
+          </select>
 
-          <!-- Province with datalist -->
-          <input list="provinces" name="province" placeholder="Province" required />
-          <datalist id="provinces">
-            <option value="Alberta"></option>
-            <option value="British Columbia"></option>
-            <option value="Manitoba"></option>
-            <option value="New Brunswick"></option>
-            <option value="Newfoundland and Labrador"></option>
-            <option value="Nova Scotia"></option>
-            <option value="Ontario"></option>
-            <option value="Prince Edward Island"></option>
-            <option value="Quebec"></option>
-            <option value="Saskatchewan"></option>
-            <option value="Northwest Territories"></option>
-            <option value="Nunavut"></option>
-            <option value="Yukon"></option>
-          </datalist>
 
           <!-- Postal Code with regex pattern for Canadian Postal Codes -->
           <input
             type="text"
-            pattern="[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]"
+            pattern="[A-Z][0-9][A-Z] [0-9][A-Z][0-9]"
             name="postalCode"
             placeholder="Postal Code"
             required
